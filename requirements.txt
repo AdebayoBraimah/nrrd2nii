@@ -1,0 +1,3 @@
+nibabel>=3.2
+numpy>=1.2
+pynrrd>=0.4.2
