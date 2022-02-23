@@ -74,7 +74,7 @@ def nrrd2nii(nrrd_file: str, gzip: bool = False) -> str:
     nrrd_file: str = os.path.abspath(nrrd_file)
     out_file: str = f"{nrrd_file[:-4]}{ext}"
 
-    data: Tuple = nrrd.read(nrrd_file)
+    data: Tuple[nib.Nifti1Image, nib.Nifti1Header] = nrrd.read(nrrd_file)
     img: nib.Nifti1Image = nib.Nifti1Image(data[0], np.eye(4))
     nib.save(img, out_file)
     return out_file
